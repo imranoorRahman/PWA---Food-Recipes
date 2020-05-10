@@ -1,1 +1,1 @@
-#5_Progressive Web App - Food Recipes
+Progressive Web App - Food Recipes
