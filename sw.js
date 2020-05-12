@@ -50,13 +50,16 @@ self.addEventListener("fetch", (evt) => {
         return (
           cacheRes ||
           fetch(evt.request).then((fetchRes) => {
-            return caches.open(dynamicCache).then((cache) => {
+            return caches.open(dynamicCacheName).then((cache) => {
               cache.put(evt.request.url, fetchRes.clone());
               return fetchRes;
             });
           })
         );
       })
-      .catch(() => caches.match("/pages/fallback.html"))
+      .catch(() => {
+        if (evt.request.url.indexOf(".html") > -1)
+          return caches.match("/pages/fallback.html");
+      })
   );
 });
