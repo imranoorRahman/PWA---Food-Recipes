@@ -10,10 +10,39 @@
       rel="stylesheet"
     />
     <link type="text/css" href="/css/styles.css" rel="stylesheet" />
+
+    <link rel="manifest" href="/manifest.json" />
     <script type="text/javascript" src="/js/materialize.min.js"></script>
     <script src="/js/app.js"></script>
+    <script src="/js/db.js"></script>
     <script src="/js/ui.js"></script>
-    <link rel="manifest" href="/manifest.json" />
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBDVJUjk4Gc4dLSAIx3t5FUs_EAUw2tFL4",
+        authDomain: "pwa-munchie-bank.firebaseapp.com",
+        databaseURL: "https://pwa-munchie-bank.firebaseio.com",
+        projectId: "pwa-munchie-bank",
+        storageBucket: "pwa-munchie-bank.appspot.com",
+        messagingSenderId: "476070338058",
+        appId: "1:476070338058:web:98f66e1023953f5a2b49f3",
+        measurementId: "G-LQM8QCRR11",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+
+      const db = firebase.firestore();
+    </script>
 
     <!-- ios support -->
     <link rel="apple-touch-icon" href="/icons/icon-96x96.png" />
