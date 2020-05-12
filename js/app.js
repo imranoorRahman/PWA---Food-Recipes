@@ -1,4 +1,4 @@
-console.log("Testing this ==> Yess, app.js has been called!");
+// console.log("Testing this ==> Yess, app.js has been called!");
 // check if browser support SW
 if (navigator.serviceWorker) {
   navigator.serviceWorker
