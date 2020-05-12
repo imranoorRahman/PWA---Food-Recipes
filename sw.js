@@ -52,25 +52,25 @@ self.addEventListener("activate", (evt) => {
 
 // Listen for Fetch event
 self.addEventListener("fetch", (evt) => {
-  // console.log("Fetch event:", evt);
-  evt.respondWith(
-    caches
-      .match(evt.request)
-      .then((cacheRes) => {
-        return (
-          cacheRes ||
-          fetch(evt.request).then((fetchRes) => {
-            return caches.open(dynamicCacheName).then((cache) => {
-              cache.put(evt.request.url, fetchRes.clone());
-              limitCacheSize(dynamicCacheName, setCacheSize);
-              return fetchRes;
-            });
-          })
-        );
-      })
-      .catch(() => {
-        if (evt.request.url.indexOf(".html") > -1)
-          return caches.match("/pages/fallback.html");
-      })
-  );
+  // // console.log("Fetch event:", evt);
+  // evt.respondWith(
+  //   caches
+  //     .match(evt.request)
+  //     .then((cacheRes) => {
+  //       return (
+  //         cacheRes ||
+  //         fetch(evt.request).then((fetchRes) => {
+  //           return caches.open(dynamicCacheName).then((cache) => {
+  //             cache.put(evt.request.url, fetchRes.clone());
+  //             limitCacheSize(dynamicCacheName, setCacheSize);
+  //             return fetchRes;
+  //           });
+  //         })
+  //       );
+  //     })
+  //     .catch(() => {
+  //       if (evt.request.url.indexOf(".html") > -1)
+  //         return caches.match("/pages/fallback.html");
+  //     })
+  // );
 });
