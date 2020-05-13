@@ -24,3 +24,21 @@ db.collection("recipes").onSnapshot((snapshot) => {
     }
   });
 });
+
+// Add new recipe
+const form = document.querySelector("form.add-recipe");
+form.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+
+  const recipe = {
+    title: form.title.value,
+    ingredients: form.ingredients.value,
+  };
+
+  db.collection("recipes")
+    .add(recipe)
+    .catch((err) => console.log(err));
+
+  form.title.value = "";
+  form.ingredients.value = "";
+});
